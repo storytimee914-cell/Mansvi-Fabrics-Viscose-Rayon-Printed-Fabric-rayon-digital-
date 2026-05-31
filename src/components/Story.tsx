@@ -1,26 +1,32 @@
 import { motion } from 'motion/react';
-import { Leaf, Award, Users, ChevronRight } from 'lucide-react';
+import { Leaf, Award, Users, ChevronRight, Factory, Globe, FlaskConical } from 'lucide-react';
 import MandalaDoodle from './MandalaDoodle';
 import { useLanguage } from '../context/LanguageContext';
+import ElectricBorder from './ui/ElectricBorder';
 
 export default function Story() {
   const { t } = useLanguage();
   
   const values = [
     {
+      icon: <Factory className="text-brand-gold" />,
+      title: t('why.f1.title'),
+      desc: t('why.f1.desc')
+    },
+    {
+      icon: <Globe className="text-brand-gold" />,
+      title: t('why.f2.title'),
+      desc: t('why.f2.desc')
+    },
+    {
+      icon: <FlaskConical className="text-brand-gold" />,
+      title: t('why.f3.title'),
+      desc: t('why.f3.desc')
+    },
+    {
       icon: <Leaf className="text-brand-gold" />,
-      title: 'Sustainability',
-      desc: 'Eco-friendly manufacturing processes.'
-    },
-    {
-      icon: <Award className="text-brand-gold" />,
-      title: 'Quality First',
-      desc: 'Rigorous quality control at every stage.'
-    },
-    {
-      icon: <Users className="text-brand-gold" />,
-      title: 'Global Trust',
-      desc: 'Consistent excellence since 1984.'
+      title: t('why.f4.title'),
+      desc: t('why.f4.desc')
     }
   ];
 
@@ -43,15 +49,20 @@ export default function Story() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-block px-4 py-1.5 bg-brand-primary/10 border border-brand-primary/20 text-brand-primary rounded-full text-[10px] font-bold uppercase tracking-[0.3em] mb-6">
-              {t('story.label')}
-            </span>
+            <div className="flex items-center gap-2 mb-6">
+              <span className="inline-block px-4 py-1.5 bg-brand-primary/10 border border-brand-primary/20 text-brand-primary rounded-full text-[10px] font-bold uppercase tracking-[0.3em]">
+                {t('story.label')}
+              </span>
+              <span className="w-1 h-1 rounded-full bg-brand-primary/30" />
+              <span className="inline-block px-4 py-1.5 bg-brand-secondary/10 border border-brand-secondary/20 text-brand-secondary rounded-full text-[10px] font-bold uppercase tracking-[0.3em]">
+                {t('why.label')}
+              </span>
+            </div>
             <h2 className="text-3xl md:text-5xl font-serif text-brand-ink mb-8 leading-tight">
               {t('story.title')}
             </h2>
             <div className="space-y-6 text-brand-ink/70 leading-relaxed text-sm text-justify">
               <p>{t('story.p1')}</p>
-              <p>{t('story.p2')}</p>
               <p>{t('story.p3')}</p>
               <div className="pt-4 space-y-2">
                 <p className="font-bold text-brand-ink">{t('story.owners')}</p>
@@ -59,14 +70,16 @@ export default function Story() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-8 mt-12 mb-10">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-6 mt-12 mb-10">
               {values.map((value, i) => (
-                <div key={i} className="flex-1 flex flex-col gap-3">
-                  <div className="w-10 h-10 rounded-full bg-brand-primary/10 flex items-center justify-center">
-                    {value.icon}
+                <div key={i} className="flex flex-col gap-2">
+                  <div className="w-8 h-8 rounded-lg bg-brand-primary/10 flex items-center justify-center text-brand-primary">
+                    <div className="scale-75">
+                      {value.icon}
+                    </div>
                   </div>
-                  <h4 className="font-serif font-bold text-brand-ink text-sm">{value.title}</h4>
-                  <p className="text-[10px] text-brand-ink/60 leading-relaxed uppercase tracking-wider">{value.desc}</p>
+                  <h4 className="font-serif font-bold text-brand-ink text-[11px] leading-tight">{value.title}</h4>
+                  <p className="text-[9px] text-brand-ink/60 leading-tight uppercase tracking-wider">{value.desc}</p>
                 </div>
               ))}
             </div>
@@ -99,9 +112,17 @@ export default function Story() {
             <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-brand-primary/10 rounded-full blur-3xl -z-10" />
             <div className="absolute -top-10 -right-10 w-64 h-64 bg-brand-secondary/5 rounded-full blur-3xl -z-10" />
             
-            <div className="absolute -bottom-6 -right-6 bg-brand-primary text-white p-8 rounded-2xl shadow-xl hidden md:block">
-              <p className="text-4xl font-serif font-bold mb-1">40+</p>
-              <p className="text-xs uppercase tracking-widest opacity-80">Years of Expertise</p>
+            <div className="absolute -bottom-6 -right-6 hidden md:block z-20">
+              <ElectricBorder
+                color="#C5A880"
+                speed={1.2}
+                chaos={0.15}
+                borderRadius={16}
+                className="bg-brand-primary text-white p-8 shadow-xl"
+              >
+                <p className="text-4xl font-serif font-bold mb-1">40+</p>
+                <p className="text-xs uppercase tracking-widest opacity-80">Years of Expertise</p>
+              </ElectricBorder>
             </div>
           </motion.div>
         </div>

@@ -1,6 +1,8 @@
 import { Instagram, Facebook, Twitter, Linkedin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
+const logoImg = "https://lh3.googleusercontent.com/d/10TYY5GeFr4lgktnMLn7BO8lcU60gM2XL";
+
 export default function Footer() {
   const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
@@ -13,9 +15,9 @@ export default function Footer() {
           <div className="col-span-1 lg:col-span-1">
             <div className="flex items-center gap-2 mb-6">
               <img 
-                src="https://lh3.googleusercontent.com/d/1N6qLV0Wtp7-_gpF4lfl51qL78XZBlC5o" 
+                src={logoImg} 
                 alt="Mansvi Fabrics Logo" 
-                className="w-24 h-auto object-contain"
+                className="w-24 h-24 rounded-xl border border-white/20 shadow-xl object-contain bg-[#f3ede4]"
                 referrerPolicy="no-referrer"
               />
             </div>

@@ -14,7 +14,6 @@ import FabricGallery from './components/FabricGallery';
 import SwatchCard from './components/SwatchCard';
 import CustomDesign from './components/CustomDesign';
 import BulkOrder from './components/BulkOrder';
-import WhyChooseUs from './components/WhyChooseUs';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { useLanguage } from './context/LanguageContext';
@@ -29,15 +28,14 @@ export default function App() {
       <main>
         <Hero />
         <TrustBar />
-        <Story />
         <Bestsellers />
         <Products />
         <SwatchCard />
         <FabricGallery />
         <BulkOrder />
         <CustomDesign />
+        <Story />
         <PartnerReviews />
-        <WhyChooseUs />
         <Contact />
       </main>
       <Footer />

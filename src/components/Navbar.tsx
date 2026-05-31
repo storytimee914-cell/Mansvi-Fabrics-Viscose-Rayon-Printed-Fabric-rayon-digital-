@@ -6,6 +6,8 @@ import { useAuth } from '../context/AuthContext';
 import { signInWithGoogle, logOut } from '../lib/firebase';
 import { useLanguage } from '../context/LanguageContext';
 
+const logoImg = "https://lh3.googleusercontent.com/d/10TYY5GeFr4lgktnMLn7BO8lcU60gM2XL";
+
 export default function Navbar() {
   const { user } = useAuth();
   const { language, setLanguage, t } = useLanguage();
@@ -32,20 +34,20 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4',
-        isScrolled ? 'bg-[#c61919]/95 backdrop-blur-md shadow-md py-2' : 'bg-[#c61919]'
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-1',
+        isScrolled ? 'bg-[#c61919]/95 backdrop-blur-md shadow-md py-1' : 'bg-[#c61919]'
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
-        <a href="#" className="flex items-center gap-2 shrink-0">
+        <a href="#" className="flex items-center gap-3 shrink-0">
           <img 
-            src="https://lh3.googleusercontent.com/d/1N6qLV0Wtp7-_gpF4lfl51qL78XZBlC5o" 
+            src={logoImg} 
             alt="Mansvi Fabrics Logo" 
-            className="w-28 h-auto object-contain"
+            className="w-12 h-12 rounded-lg shadow-md border border-white/20 object-contain bg-[#f3ede4]"
             referrerPolicy="no-referrer"
           />
           <span className={cn(
-            "font-serif text-2xl font-semibold tracking-tight hidden sm:block text-white"
+            "font-serif text-lg font-semibold tracking-tight hidden sm:block text-white"
           )}>
             Mansvi Fabrics
           </span>

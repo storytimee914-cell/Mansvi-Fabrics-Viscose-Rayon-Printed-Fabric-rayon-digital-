@@ -1,107 +1,99 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
-import MandalaDoodle from './MandalaDoodle';
+import { ArrowRight, Sparkles } from 'lucide-react';
+import Lottie from 'lottie-react';
 import { useLanguage } from '../context/LanguageContext';
-
-const HERO_IMAGES = [
-  'https://lh3.googleusercontent.com/u/0/d/1OA5ZsiW3Gvg43YbgEP-Kk9ndNBRMcJBd',
-  'https://lh3.googleusercontent.com/u/0/d/1mq-XEkZayHYxeIQpAm6kGnYlo5ZT4H19'
-];
+import { ContainerScroll } from './ui/container-scroll-animation';
 
 export default function Hero() {
   const { t } = useLanguage();
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [animationData, setAnimationData] = useState<any>(null);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 2000);
-    return () => clearInterval(timer);
+    // Gracefully check and load Lottie animation if available locally
+    fetch('http://localhost:8000/animation.json')
+      .then(res => res.json())
+      .then(data => setAnimationData(data))
+      .catch(err => {
+        console.log('Lottie helper offline indicator - gracefully fallback.', err);
+      });
   }, []);
 
-  return (
-    <section className="relative min-h-screen flex flex-col bg-brand-bg pt-20 overflow-hidden text-left">
-      {/* Decorative Brand Accents */}
-      <MandalaDoodle className="absolute -top-20 -left-20" size={600} opacity={0.07} rotationDuration={120} />
-      <MandalaDoodle className="absolute top-1/3 -right-32" size={500} opacity={0.07} rotationDuration={180} />
-      <MandalaDoodle className="absolute -bottom-40 left-1/4" size={800} opacity={0.07} rotationDuration={240} />
+  const titleComponent = (
+    <div className="flex flex-col items-center justify-center px-4 relative z-20">
+      {/* Sparkles pill tag */}
+      <span className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-brand-primary/10 border border-brand-primary/20 text-brand-primary rounded-full text-[10px] font-bold uppercase tracking-[0.25em] mb-6 shadow-sm">
+        <Sparkles size={11} className="text-brand-gold animate-pulse" />
+        {t('hero.label')}
+      </span>
 
-      {/* Full Frame Image Section */}
-      <div className="w-full flex-1 flex items-center justify-center p-6 md:p-10 relative overflow-hidden min-h-[400px]">
-        <div className="relative w-full h-[50vh] md:h-[60vh] max-w-6xl mx-auto flex items-center justify-center">
-          <AnimatePresence mode="popLayout">
-            <motion.img
-              key={currentIndex}
-              src={HERO_IMAGES[currentIndex]}
-              alt="Premium Fabric Heritage"
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-              className="w-full h-full object-contain absolute inset-0"
-              referrerPolicy="no-referrer"
-            />
-          </AnimatePresence>
-        </div>
-        
-        {/* Progress Indicators */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-          {HERO_IMAGES.map((_, i) => (
-            <div 
-              key={i}
-              className={`h-1 rounded-full transition-all duration-500 ${
-                currentIndex === i ? 'w-8 bg-brand-primary' : 'w-2 bg-brand-ink/10'
-              }`}
-            />
-          ))}
-        </div>
-      </div>
+      {/* Title block with elegant typography and custom colors */}
+      <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-brand-ink leading-tight tracking-tight max-w-4xl mx-auto">
+        {t('hero.title.line1')}<br />
+        <span className="italic font-light text-brand-secondary text-2xl sm:text-4xl md:text-5xl lg:text-6xl block mt-1">
+          {t('hero.title.line2')}
+        </span>
+      </h1>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pb-32">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+      {/* Short high-end description text */}
+      <p className="text-xs sm:text-sm md:text-base text-brand-ink/70 max-w-2xl mx-auto mt-6 font-light leading-relaxed">
+        {t('hero.subtitle')}
+      </p>
+
+      {/* Floating interactive Lottie animation if loaded */}
+      {animationData && (
+        <div className="pointer-events-none mx-auto max-w-xs mt-4 -mb-4 opacity-40">
+          <Lottie animationData={animationData} loop={true} style={{ height: 100 }} />
+        </div>
+      )}
+
+      {/* Call to Actions */}
+      <div className="flex flex-row items-center justify-center gap-3 sm:gap-4 mt-8 select-none">
+        <a
+          href="#products"
+          className="group bg-brand-primary text-white px-6 sm:px-8 py-3 rounded-full font-medium flex items-center justify-center gap-2 hover:bg-brand-ink transition-all shadow-lg shadow-brand-primary/10 text-xs sm:text-sm"
         >
-          <span className="inline-block px-4 py-1.5 bg-brand-primary/10 border border-brand-primary/20 text-brand-primary rounded-full text-[10px] font-bold uppercase tracking-[0.3em] mb-8">
-            {t('hero.label')}
-          </span>
-          <h1 className="text-4xl md:text-7xl font-serif text-brand-ink leading-[1.1] mb-8 tracking-tight">
-            {t('hero.title.line1')}<br />
-            <span className="italic font-light text-brand-secondary">{t('hero.title.line2')}</span>
-          </h1>
-          <p className="text-base md:text-lg text-brand-ink/70 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-            {t('hero.subtitle')}
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <a
-              href="#products"
-              className="group bg-brand-primary text-white px-10 py-4 rounded-full font-medium flex items-center gap-2 hover:bg-brand-ink transition-all shadow-xl shadow-brand-primary/20"
-            >
-              {t('hero.cta.view')}
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#bulk"
-              className="text-brand-ink px-10 py-4 rounded-full font-medium border border-brand-ink/10 hover:bg-brand-ink hover:text-white transition-all"
-            >
-              {t('hero.cta.wholesale')}
-            </a>
-          </div>
-        </motion.div>
+          {t('hero.cta.view')}
+          <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+        </a>
+        <a
+          href="#bulk"
+          className="bg-white text-brand-ink px-6 sm:px-8 py-3 rounded-full font-medium border border-brand-ink/10 hover:bg-brand-ink hover:text-white transition-all hover:border-brand-ink text-xs sm:text-sm text-center shadow-sm"
+        >
+          {t('hero.cta.wholesale')}
+        </a>
       </div>
+    </div>
+  );
 
-      {/* Scroll Indicator */}
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-brand-ink/50 flex flex-col items-center gap-2"
-      >
-        <span className="text-[10px] uppercase tracking-[0.3em]">{t('scroll')}</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-brand-primary/50 to-transparent" />
-      </motion.div>
+  return (
+    <section className="relative w-full bg-brand-bg pt-2 md:pt-10 overflow-hidden text-center" id="hero">
+      {/* Decorative background grid pattern to enhance premium high-contrast feel */}
+      <div className="absolute inset-x-0 top-0 h-[600px] bg-gradient-to-b from-brand-primary/[0.03] to-transparent pointer-events-none" />
+      
+      {/* Container Scroll Animation wrapper */}
+      <ContainerScroll titleComponent={titleComponent}>
+        <div className="w-full h-full relative group">
+          <img
+            src="https://lh3.googleusercontent.com/d/1LFyLsBPi4LX_GVIeNZRz-ENUUNbaSraC"
+            alt="Mansvi Fabrics Loom/Textile Yarn Spindles"
+            className="w-full h-full object-cover object-center select-none rounded-xl"
+            referrerPolicy="no-referrer"
+            draggable={false}
+          />
+          {/* Ambient overlay to ground the photo in luxury aesthetic */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 rounded-xl" />
+          
+          {/* Subtle logo/branding details on top of photo card */}
+          <div className="absolute bottom-4 left-6 right-6 flex items-center justify-between pointer-events-none">
+            <span className="text-[9px] font-mono font-bold tracking-[0.3em] text-brand-cream/80 uppercase">
+              Mansvi Fabrics Craftsmanship
+            </span>
+            <span className="text-[9px] font-mono font-bold tracking-[0.2em] text-brand-gold uppercase">
+              Est. 1984
+            </span>
+          </div>
+        </div>
+      </ContainerScroll>
     </section>
   );
 }

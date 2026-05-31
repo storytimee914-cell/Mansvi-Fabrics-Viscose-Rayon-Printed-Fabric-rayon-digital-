@@ -8,23 +8,23 @@ import { useLanguage } from '../context/LanguageContext';
 
 const GALLERY_IMAGES = [
   {
-    url: 'https://lh3.googleusercontent.com/u/0/d/1CKgiNMtsMcN7_pbDXvb8wraFJq0Pj_26',
+    url: 'https://lh3.googleusercontent.com/d/1CKgiNMtsMcN7_pbDXvb8wraFJq0Pj_26',
     title: 'Digital Textile Prints'
   },
   {
-    url: 'https://lh3.googleusercontent.com/u/0/d/1BwMpMxMnw0G1Em8w-5Ab0o5juxF8lRiS',
+    url: 'https://lh3.googleusercontent.com/d/1BwMpMxMnw0G1Em8w-5Ab0o5juxF8lRiS',
     title: 'Rayon Collection'
   },
   {
-    url: 'https://lh3.googleusercontent.com/u/0/d/1H5cSSBYgpEiWY_RZNtHi2rue0ol8nnBf',
+    url: 'https://lh3.googleusercontent.com/d/1H5cSSBYgpEiWY_RZNtHi2rue0ol8nnBf',
     title: 'Ethnic Designs'
   },
   {
-    url: 'https://lh3.googleusercontent.com/u/0/d/17R39W99-boZHyxCzcvwWZr-Y7jfqbooZ',
+    url: 'https://lh3.googleusercontent.com/d/17R39W99-boZHyxCzcvwWZr-Y7jfqbooZ',
     title: 'Premium Prints'
   },
   {
-    url: 'https://lh3.googleusercontent.com/u/0/d/1zuGL-yP9q0Yq6FnThQk6Ihj2uJA9RDVB',
+    url: 'https://lh3.googleusercontent.com/d/1zuGL-yP9q0Yq6FnThQk6Ihj2uJA9RDVB',
     title: 'Sustainable Fabrics'
   },
   {

@@ -42,12 +42,11 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Story
     'story.label': 'Customer Trust',
-    'story.title': 'Mansvi Fabrics (Part of Malani Group)',
+    'story.title': 'Mansvi Fabrics (Unit of Malani Group)',
     'story.p1': 'The company has developed itself as a preferred fabric provider of high-quality viscose fabric and high-definition printed fabrics. This company is promoted by highly successful promoters with relevant industry background of four decades. Our promoters have long-standing relationships with various stakeholders like suppliers and other companies operating within the Textile cluster of Balotra, India.',
-    'story.p2': 'We believe that quality of the fabric used is a crucial factor for various clothing designs. This understanding has allowed us to consistently produce high-quality fabric for various types of clothing like Kurtis, Kaftan, Palazzo, Co-ord sets and many more.',
     'story.p3': 'Our core business focus is towards manufacturing the high quality Viscose Rayon fabrics, Digital-Printed Rayon, Digital-Printed Cotton Fabric, Digital-Printed Muslin Fabric and many more.',
-    'story.owners': 'owner - NITIN MALANI',
-    'story.director': 'Director - PARTH MALANI',
+    'story.owners': 'DIRECTOR - NITIN MALANI',
+    'story.director': 'MANAGING DIRECTOR - PARTH MALANI',
     'story.cta': 'Learn More About Us',
 
     // Bestsellers
@@ -175,12 +174,11 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Story
     'story.label': 'ग्राहक का भरोसा',
-    'story.title': 'मनस्वी फैब्रिक्स (मलानी ग्रुप का हिस्सा)',
+    'story.title': 'मनस्वी फैब्रिक्स (मलानी ग्रुप की इकाई)',
     'story.p1': 'कंपनी ने खुद को उच्च गुणवत्ता वाले विस्कोस फैब्रिक और हाई-डेफिनिशन प्रिंटेड फैब्रिक के पसंदीदा प्रदाता के रूप में विकसित किया है। यह कंपनी चार दशकों के प्रासंगिक उद्योग पृष्ठभूमि वाले अत्यधिक सफल प्रमोटरों द्वारा संचालित है। हमारे प्रमोटरों के बालोतरा, भारत के टेक्सटाइल क्लस्टर के भीतर आपूर्तिकर्ताओं और अन्य कंपनियों जैसे विभिन्न हितधारकों के साथ लंबे समय से संबंध हैं।',
-    'story.p2': 'हमारा मानना है कि उपयोग किए गए कपड़े की गुणवत्ता विभिन्न कपड़ों के डिजाइनों के लिए एक महत्वपूर्ण कारक है। इस समझ ने हमें कुर्ती, कफ्तान, पलाज़ो, को-ऑर्ड सेट और कई अन्य प्रकार के कपड़ों के लिए लगातार उच्च गुणवत्ता वाले कपड़े बनाने की अनुमति दी है।',
     'story.p3': 'हमारा मुख्य व्यवसाय फोकस उच्च गुणवत्ता वाले विस्कोस रेयॉन फैब्रिक्स, डिजिटल-प्रिंटेड रेयॉन, डिजिटल-प्रिंटेड कॉटन फैब्रिक, डिजिटल-प्रिंटेड मसलिन फैब्रिक और कई अन्य के निर्माण की ओर है।',
-    'story.owners': 'मालिक - नितिन मलानी',
-    'story.director': 'निदेशक - पार्थ मलानी',
+    'story.owners': 'निदेशक - नितिन मलानी',
+    'story.director': 'प्रबंध निदेशक - पार्थ मलानी',
     'story.cta': 'हमारे बारे में और जानें',
 
     // Bestsellers
