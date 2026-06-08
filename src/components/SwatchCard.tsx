@@ -10,7 +10,7 @@ const SWATCH_IMAGES = [
     title: 'Texture Swatch A'
   },
   {
-    url: 'https://lh3.googleusercontent.com/d/1S0uP67Bk6wsWA0_ltYOMZljvxR4H2lAA',
+    url: 'https://lh3.googleusercontent.com/d/19JSv508cUTmn2tEpF5H4ldhGCGG8-Ows',
     title: 'Texture Swatch C'
   },
   {
@@ -31,7 +31,7 @@ export default function SwatchCard() {
   );
 
   return (
-    <section className="py-20 bg-white overflow-hidden">
+    <section className="py-20 bg-white overflow-hidden" id="swatches">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <motion.h2 

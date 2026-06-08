@@ -7,6 +7,13 @@ export default function Bestsellers() {
   const { t } = useLanguage();
   const bestsellers = PRODUCTS.slice(0, 4);
 
+  const handleQuickView = (productId: string) => {
+    const event = new CustomEvent('open-product-quickview', {
+      detail: { productId }
+    });
+    window.dispatchEvent(event);
+  };
+
   return (
     <section className="py-24 px-6 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -32,6 +39,7 @@ export default function Bestsellers() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               className="group cursor-pointer"
+              onClick={() => handleQuickView(product.id)}
             >
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-4 shadow-sm group-hover:shadow-xl group-hover:shadow-brand-primary/10 transition-all">
                 <img
@@ -42,7 +50,13 @@ export default function Bestsellers() {
                 />
                 <div className="absolute inset-0 bg-brand-ink/20 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
-                  <button className="w-full bg-white text-brand-ink py-3 rounded-xl text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-brand-secondary hover:text-white transition-colors">
+                  <button 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleQuickView(product.id);
+                    }}
+                    className="w-full bg-white text-brand-ink py-3 rounded-xl text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-brand-secondary hover:text-white transition-colors cursor-pointer"
+                  >
                     <ShoppingBag size={14} /> Quick View
                   </button>
                 </div>

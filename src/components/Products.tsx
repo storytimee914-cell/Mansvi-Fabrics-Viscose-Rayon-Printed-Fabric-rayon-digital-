@@ -1,14 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PRODUCTS } from '../constants';
 import { cn } from '../lib/utils';
-import { ZoomIn, X } from 'lucide-react';
+import { ZoomIn, X, Palette } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Products() {
   const { t } = useLanguage();
   const [filter, setFilter] = useState<'all' | 'viscose' | 'cotton' | 'printed' | 'kaftan' | 'palazzo'>('all');
   const [selectedProduct, setSelectedProduct] = useState<typeof PRODUCTS[0] | null>(null);
+
+  useEffect(() => {
+    const handleOpenQuickView = (e: CustomEvent<{ productId: string }>) => {
+      const prod = PRODUCTS.find(p => p.id === e.detail.productId);
+      if (prod) {
+        setSelectedProduct(prod);
+      }
+    };
+    window.addEventListener('open-product-quickview' as any, handleOpenQuickView);
+    return () => {
+      window.removeEventListener('open-product-quickview' as any, handleOpenQuickView);
+    };
+  }, []);
 
   const filteredProducts = filter === 'all' 
     ? PRODUCTS.filter(p => p.category !== 'kaftan' && p.category !== 'palazzo')
@@ -98,14 +111,28 @@ export default function Products() {
                   </p>
                   
                   {/* Color Swatches */}
-                  <div className="flex gap-2 mb-6">
-                    {['#A3C1DA', '#D81B60', '#BF360C', '#81C784'].map((color, i) => (
-                      <div 
-                        key={i} 
-                        className="w-6 h-6 rounded-full border-2 border-white shadow-sm ring-1 ring-white/10"
-                        style={{ backgroundColor: color }}
-                      />
-                    ))}
+                  <div className="flex items-center justify-between gap-2 mb-6">
+                    <div className="flex gap-1.5">
+                      {['#A3C1DA', '#D81B60', '#BF360C', '#81C784'].map((color, i) => (
+                        <div 
+                          key={i} 
+                          className="w-5 h-5 rounded-full border border-white shadow-sm ring-1 ring-brand-ink/5"
+                          style={{ backgroundColor: color }}
+                        />
+                      ))}
+                    </div>
+                    <button
+                      onClick={() => {
+                        const element = document.getElementById('swatches');
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                      }}
+                      className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-widest text-brand-primary hover:text-brand-secondary transition-colors cursor-pointer hover:underline"
+                    >
+                      <Palette size={11} className="shrink-0" />
+                      {t('product.moreColors')}
+                    </button>
                   </div>
 
                   <div className="flex flex-wrap gap-2">
@@ -185,6 +212,23 @@ export default function Products() {
                         <span className="text-[8px] font-bold uppercase tracking-widest text-brand-ink/30">{item.name}</span>
                       </div>
                     ))}
+                  </div>
+                  <div className="mt-5 flex justify-center">
+                    <button
+                      onClick={() => {
+                        setSelectedProduct(null);
+                        setTimeout(() => {
+                          const element = document.getElementById('swatches');
+                          if (element) {
+                            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                          }
+                        }, 100);
+                      }}
+                      className="inline-flex items-center gap-1.5 bg-brand-primary/15 hover:bg-brand-primary text-brand-primary hover:text-white border border-brand-primary/25 hover:border-brand-primary px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all shadow-sm hover:shadow-md cursor-pointer active:scale-[0.98]"
+                    >
+                      <Palette size={13} className="shrink-0" />
+                      {t('product.viewSwatches')}
+                    </button>
                   </div>
                 </div>
 
