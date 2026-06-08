@@ -16,6 +16,10 @@ const SWATCH_IMAGES = [
   {
     url: 'https://lh3.googleusercontent.com/d/1bpnY0r5j-StMN9zSK4PwUsTIPHI4cIhM',
     title: 'Texture Swatch B'
+  },
+  {
+    url: 'https://lh3.googleusercontent.com/d/1qoiYVFO2uye5tQtR9KH3B25bz6-6Ez8S',
+    title: 'Texture Swatch D'
   }
 ];
 

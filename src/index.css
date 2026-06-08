@@ -17,6 +17,10 @@
 }
 
 @layer base {
+  html, body, #root {
+    position: relative;
+  }
+
   body {
     @apply bg-brand-bg text-brand-ink font-sans antialiased;
   }

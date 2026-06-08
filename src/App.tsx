@@ -23,9 +23,9 @@ export default function App() {
   const { language } = useLanguage();
   
   return (
-    <div className={cn("min-h-screen", language === 'hi' && "font-hindi")}>
+    <div className={cn("min-h-screen relative", language === 'hi' && "font-hindi")}>
       <Navbar />
-      <main>
+      <main className="relative">
         <Hero />
         <TrustBar />
         <Bestsellers />

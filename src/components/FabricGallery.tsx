@@ -38,6 +38,18 @@ const GALLERY_IMAGES = [
   {
     url: 'https://lh3.googleusercontent.com/d/18S6381CK0CTbmUokoNJazZs0mtyNQtTl',
     title: 'Artistic Textiles'
+  },
+  {
+    url: 'https://lh3.googleusercontent.com/d/1-mLSPr4rQ2BRMJiyqY5VT1kEu9wgaqL2',
+    title: 'Heritage Weaves'
+  },
+  {
+    url: 'https://lh3.googleusercontent.com/d/1AMLy1X2Eep9kM9T5OkE30J3MHNd71KGD',
+    title: 'Traditional Prints'
+  },
+  {
+    url: 'https://lh3.googleusercontent.com/d/1z-T6Q4F-WGYdCvyTtezC0gCHDz17Nyz8',
+    title: 'Contemporary Motifs'
   }
 ];
 
