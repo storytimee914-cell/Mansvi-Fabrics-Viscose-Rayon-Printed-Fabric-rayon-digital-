@@ -4,6 +4,7 @@ import { PRODUCTS } from '../constants';
 import { cn } from '../lib/utils';
 import { ZoomIn, X, Palette } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { playClickSound } from '../utils/audio';
 
 export default function Products() {
   const { t } = useLanguage();
@@ -48,16 +49,19 @@ export default function Products() {
         </div>
 
         {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-14">
                   {categories.map((cat) => (
             <button
               key={cat.id}
-              onClick={() => setFilter(cat.id as any)}
+              onClick={() => {
+                playClickSound();
+                setFilter(cat.id as any);
+              }}
               className={cn(
-                'px-6 py-2 rounded-full text-sm font-medium transition-all border',
+                'px-6 py-3 rounded-full text-sm font-semibold transition-all duration-150 border-2 transform',
                 filter === cat.id 
-                  ? 'bg-brand-primary border-brand-primary text-white shadow-lg shadow-brand-primary/20' 
-                  : 'bg-brand-cream border-brand-ink/10 text-brand-ink/60 hover:border-brand-primary hover:text-brand-primary'
+                  ? 'bg-brand-primary border-brand-secondary text-white shadow-[0_5px_0_0_#8B0000] translate-y-[-2px] hover:translate-y-[-3px] hover:shadow-[0_6px_0_0_#8B0000] active:translate-y-[2px] active:shadow-[0_1px_0_0_#8B0000]' 
+                  : 'bg-brand-cream border-brand-ink/10 text-brand-ink/80 shadow-[0_5px_0_0_rgba(26,26,26,0.15)] translate-y-[-2px] hover:translate-y-[-3px] hover:shadow-[0_6px_0_0_rgba(26,26,26,0.15)] hover:border-brand-primary hover:text-brand-primary active:translate-y-[2px] active:shadow-[0_1px_0_0_rgba(26,26,26,0.15)]'
               )}
             >
               {cat.name}
@@ -81,13 +85,22 @@ export default function Products() {
                 transition={{ duration: 0.4 }}
                 className="group bg-white/5 backdrop-blur-sm rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-brand-primary/10 transition-all border border-white/10"
               >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    referrerPolicy="no-referrer"
-                  />
+                <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 flex items-center justify-center">
+                  {product.image ? (
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      referrerPolicy="no-referrer"
+                    />
+                  ) : (
+                    <div className="flex flex-col items-center gap-2 p-4 text-center">
+                      <div className="w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary">
+                        <Palette size={20} />
+                      </div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-brand-ink/40">Preview Coming Soon</span>
+                    </div>
+                  )}
                   <div className="absolute inset-0 bg-[#060505]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
                     <button 
                       onClick={() => setSelectedProduct(product)}
@@ -166,13 +179,22 @@ export default function Products() {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="relative bg-white w-full max-w-4xl rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row"
             >
-              <div className="md:w-1/2 aspect-square md:aspect-auto">
-                <img
-                  src={selectedProduct.image}
-                  alt={selectedProduct.name}
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
+              <div className="md:w-1/2 aspect-square md:aspect-auto bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 flex flex-col items-center justify-center p-8 text-center min-h-[300px]">
+                {selectedProduct.image ? (
+                  <img
+                    src={selectedProduct.image}
+                    alt={selectedProduct.name}
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                ) : (
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="w-14 h-14 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary">
+                      <Palette size={24} />
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-brand-ink/40">Preview Coming Soon</span>
+                  </div>
+                )}
               </div>
               <div className="md:w-1/2 p-8 md:p-12 flex flex-col">
                 <button 

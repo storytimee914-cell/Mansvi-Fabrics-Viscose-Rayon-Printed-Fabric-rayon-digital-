@@ -28,18 +28,6 @@ const GALLERY_IMAGES = [
     title: 'Sustainable Fabrics'
   },
   {
-    url: 'https://lh3.googleusercontent.com/d/10MWyfg3jA5OFIktFoUXePQfw30iA1tUc',
-    title: 'Textured Weaves'
-  },
-  {
-    url: 'https://lh3.googleusercontent.com/d/1ryHW_z-dKPSwH_MZ_TzN3WU7CugZbkfD',
-    title: 'Modern Patterns'
-  },
-  {
-    url: 'https://lh3.googleusercontent.com/d/18S6381CK0CTbmUokoNJazZs0mtyNQtTl',
-    title: 'Artistic Textiles'
-  },
-  {
     url: 'https://lh3.googleusercontent.com/d/1-mLSPr4rQ2BRMJiyqY5VT1kEu9wgaqL2',
     title: 'Heritage Weaves'
   },
@@ -50,6 +38,18 @@ const GALLERY_IMAGES = [
   {
     url: 'https://lh3.googleusercontent.com/d/1z-T6Q4F-WGYdCvyTtezC0gCHDz17Nyz8',
     title: 'Contemporary Motifs'
+  },
+  {
+    url: 'https://lh3.googleusercontent.com/d/183S5tq0hUBL47M-MzKiP1CvId72QsqvL',
+    title: 'Artisan Weaves'
+  },
+  {
+    url: 'https://lh3.googleusercontent.com/d/1ulBZNLfFNZ5ur_wQM8qebCGBkJpb_NIB',
+    title: 'Luxe Patterns'
+  },
+  {
+    url: 'https://lh3.googleusercontent.com/d/18lQYyFD14IN6lJDuHsZ64kQasAOaww4Q',
+    title: 'Vibrant Florals'
   }
 ];
 

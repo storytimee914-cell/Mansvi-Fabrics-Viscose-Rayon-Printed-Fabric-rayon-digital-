@@ -16,6 +16,7 @@ import CustomDesign from './components/CustomDesign';
 import BulkOrder from './components/BulkOrder';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import WhatsAppWidget from './components/WhatsAppWidget';
 import { useLanguage } from './context/LanguageContext';
 import { cn } from './lib/utils';
 
@@ -39,6 +40,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <WhatsAppWidget />
     </div>
   );
 }

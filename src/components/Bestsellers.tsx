@@ -41,13 +41,22 @@ export default function Bestsellers() {
               className="group cursor-pointer"
               onClick={() => handleQuickView(product.id)}
             >
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-4 shadow-sm group-hover:shadow-xl group-hover:shadow-brand-primary/10 transition-all">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
-                />
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-4 shadow-sm group-hover:shadow-xl group-hover:shadow-brand-primary/10 transition-all bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 flex items-center justify-center">
+                {product.image ? (
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    referrerPolicy="no-referrer"
+                  />
+                ) : (
+                  <div className="flex flex-col items-center gap-2 p-4 text-center">
+                    <div className="w-10 h-10 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary">
+                      <ShoppingBag size={16} />
+                    </div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-ink/40">Preview Coming Soon</span>
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-brand-ink/20 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="absolute bottom-4 left-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
                   <button 

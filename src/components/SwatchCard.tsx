@@ -14,7 +14,7 @@ const SWATCH_IMAGES = [
     title: 'Texture Swatch C'
   },
   {
-    url: 'https://lh3.googleusercontent.com/d/1bpnY0r5j-StMN9zSK4PwUsTIPHI4cIhM',
+    url: 'https://lh3.googleusercontent.com/d/18Igcic-aTpe26ZwfqS3xhmXK4F2yI6hB',
     title: 'Texture Swatch B'
   },
   {

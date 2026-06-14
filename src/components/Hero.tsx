@@ -5,6 +5,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { ContainerScroll } from './ui/container-scroll-animation';
 import { useScroll, useTransform, useMotionValueEvent, motion, AnimatePresence } from 'motion/react';
 import dyeingImage from '../assets/images/textile_dyeing_process_1780859391398.png';
+import { playClickSound } from '../utils/audio';
 
 export default function Hero() {
   const { t, language } = useLanguage();
@@ -706,23 +707,29 @@ export default function Hero() {
       </ContainerScroll>
 
       {/* Experience Mode Selector Pill placed beautifully below the image card */}
-      <div className="flex items-center justify-center gap-1.5 p-1.5 bg-white/90 backdrop-blur-md rounded-full border border-brand-primary/15 max-w-[340px] w-full mx-auto -mt-6 sm:-mt-10 mb-16 transition-all shadow-xl shadow-brand-primary/5 relative z-35">
+      <div className="flex items-center justify-center gap-1.5 p-1.5 bg-white/95 backdrop-blur-md rounded-full border border-brand-primary/20 max-w-[340px] w-full mx-auto -mt-6 sm:-mt-10 mb-16 transition-all shadow-xl shadow-brand-primary/5 relative z-35">
         <button
-          onClick={() => setActiveMode('dyeing')}
-          className={`flex-1 px-4 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all cursor-pointer ${
+          onClick={() => {
+            playClickSound();
+            setActiveMode('dyeing');
+          }}
+          className={`flex-1 px-4 py-3 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all cursor-pointer border transform ${
             activeMode === 'dyeing'
-              ? 'bg-brand-primary text-white shadow-md scale-102 font-extrabold'
-              : 'text-brand-ink/65 hover:text-brand-primary hover:bg-brand-primary/5 font-semibold'
+              ? 'bg-brand-primary border-brand-secondary text-white shadow-[0_4px_0_0_#8B0000] translate-y-[-1px] hover:translate-y-[-2px] hover:shadow-[0_5px_0_0_#8B0000] active:translate-y-[2px] active:shadow-[0_1px_0_0_#8B0000]'
+              : 'bg-transparent border-transparent text-brand-ink/65 hover:text-brand-primary hover:bg-brand-primary/5 active:translate-y-[1px]'
           }`}
         >
           🎨 {language === 'hi' ? 'रंगाई वाट' : 'Artisanal Dyeing'}
         </button>
         <button
-          onClick={() => setActiveMode('loom')}
-          className={`flex-1 px-4 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all cursor-pointer ${
+          onClick={() => {
+            playClickSound();
+            setActiveMode('loom');
+          }}
+          className={`flex-1 px-4 py-3 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all cursor-pointer border transform ${
             activeMode === 'loom'
-              ? 'bg-brand-primary text-white shadow-md scale-102 font-extrabold'
-              : 'text-brand-ink/65 hover:text-brand-primary hover:bg-brand-primary/5 font-semibold'
+              ? 'bg-brand-primary border-brand-secondary text-white shadow-[0_4px_0_0_#8B0000] translate-y-[-1px] hover:translate-y-[-2px] hover:shadow-[0_5px_0_0_#8B0000] active:translate-y-[2px] active:shadow-[0_1px_0_0_#8B0000]'
+              : 'bg-transparent border-transparent text-brand-ink/65 hover:text-brand-primary hover:bg-brand-primary/5 active:translate-y-[1px]'
           }`}
         >
           ⚙️ {language === 'hi' ? 'बुनाई लूम' : 'Weaving Loom'}

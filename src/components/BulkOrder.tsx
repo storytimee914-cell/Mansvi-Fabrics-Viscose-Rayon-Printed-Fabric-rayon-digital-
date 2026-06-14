@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { WHATSAPP_NUMBER } from '../constants';
 import MandalaDoodle from './MandalaDoodle';
 import { useLanguage } from '../context/LanguageContext';
+import { playClickSound } from '../utils/audio';
 
 interface BulkOrderForm {
   name: string;
@@ -21,6 +22,7 @@ export default function BulkOrder() {
   const { register, handleSubmit, reset } = useForm<BulkOrderForm>();
 
   const onSubmit = (data: BulkOrderForm) => {
+    playClickSound();
     const message = encodeURIComponent(
       `Hello Mansvi Fabrics,\n\nI have a Bulk Order Inquiry:\n` +
       `*Name:* ${data.name}\n` +
@@ -39,6 +41,7 @@ export default function BulkOrder() {
   };
 
   const handleWhatsApp = () => {
+    playClickSound();
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I am interested in Bulk Fabrics.`, '_blank');
   };
 
@@ -83,7 +86,7 @@ export default function BulkOrder() {
 
             <button
               onClick={handleWhatsApp}
-              className="group bg-[#25D366] text-white px-8 py-4 rounded-full font-bold flex items-center gap-3 hover:scale-105 transition-all shadow-xl shadow-[#25D366]/20"
+              className="group bg-[#25D366] text-white px-8 py-4 rounded-full font-bold flex items-center gap-3 border-2 border-[#1ebd5b] shadow-[0_5px_0_0_#128C7E] translate-y-[-2px] hover:translate-y-[-3px] hover:shadow-[0_6px_0_0_#128C7E] active:translate-y-[2px] active:shadow-[0_1px_0_0_#128C7E] transition-all duration-150"
             >
               <MessageCircle size={24} />
               Order via WhatsApp
@@ -162,7 +165,7 @@ export default function BulkOrder() {
 
                 <button
                   type="submit"
-                  className="w-full bg-brand-primary text-white py-4 rounded-full font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-brand-ink transition-all shadow-lg shadow-brand-primary/20"
+                  className="w-full bg-brand-primary text-white py-4 rounded-full font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 border-2 border-brand-secondary/40 shadow-[0_5px_0_0_#8B0000] translate-y-[-2px] hover:translate-y-[-3px] hover:shadow-[0_6px_0_0_#8B0000] active:translate-y-[2px] active:shadow-[0_1px_0_0_#8B0000] transition-all duration-150"
                 >
                   <Send size={16} />
                   {t('bulk.cta')}

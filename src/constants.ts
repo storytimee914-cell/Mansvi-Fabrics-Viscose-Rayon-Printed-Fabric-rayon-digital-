@@ -90,7 +90,7 @@ export const PRODUCTS: Product[] = [
     name: 'Designer Kaftan Print A',
     category: 'kaftan',
     description: 'Beautifully printed high-quality rayon fabric perfect for elegant designer kaftans.',
-    image: 'https://lh3.googleusercontent.com/d/1rMIX2R4hWSLkH28Zp0mqnAKRw9ingiju',
+    image: 'https://lh3.googleusercontent.com/d/1GnLVJNhjBCaXNoQhTxAVtXrXRsoMhyQA',
     usage: ['Kaftans', 'Resort Wear', 'Beach Wear']
   },
   {
@@ -98,39 +98,23 @@ export const PRODUCTS: Product[] = [
     name: 'Designer Kaftan Print B',
     category: 'kaftan',
     description: 'Vibrant and luxurious rayon fabric with intricate designs for premium kaftan collections.',
-    image: 'https://lh3.googleusercontent.com/d/1IQJN8_EEWtBiPUtEMi_OAF-U8SXASyyK',
+    image: 'https://lh3.googleusercontent.com/d/1FlrjWCj4wExOuBvOF3mPWTMedh4ZTYW5',
     usage: ['Kaftans', 'Evening Wear', 'Lounge Wear']
   },
   {
-    id: '14',
+    id: '16',
     name: 'Designer Kaftan Print C',
     category: 'kaftan',
-    description: 'Soft and breathable rayon fabric with unique prints for modern kaftan styles.',
-    image: 'https://lh3.googleusercontent.com/d/1K9RyhZeh8LPCnmnEtMVPBM8-Wjh3gW7F',
-    usage: ['Kaftans', 'Summer Wear', 'Home Wear']
-  },
-  {
-    id: '15',
-    name: 'Designer Kaftan Print D',
-    category: 'kaftan',
-    description: 'Elegant and durable rayon fabric with high-definition digital prints for kaftans.',
-    image: 'https://lh3.googleusercontent.com/d/1F2-4QbB-lDubGOB1XdHMvU5_WSG6V18w',
-    usage: ['Kaftans', 'Resort Wear', 'Designer Apparel']
-  },
-  {
-    id: '16',
-    name: 'Designer Kaftan Print E',
-    category: 'kaftan',
     description: 'Premium quality rayon fabric with sophisticated patterns for high-end kaftans.',
-    image: 'https://lh3.googleusercontent.com/d/1pd_Eofa9BQ0lpma_w73ULMLGVVAQ2tvL',
+    image: 'https://lh3.googleusercontent.com/d/1cnTW2SSrFYQhVr_BdLih1z1nC8ricg2s',
     usage: ['Kaftans', 'Luxury Wear', 'Outerwear']
   },
   {
     id: '17',
-    name: 'Designer Kaftan Print F',
+    name: 'Designer Kaftan Print D',
     category: 'kaftan',
     description: 'Fluid and comfortable rayon fabric with artistic prints for versatile kaftan designs.',
-    image: 'https://lh3.googleusercontent.com/d/1NI2Y3oATzBuli_W19aIisRd48YF2f9R1',
+    image: 'https://lh3.googleusercontent.com/d/1-DGpfTSYTWuuZ4GmX0A1YJFIpmCmaBsP',
     usage: ['Kaftans', 'Summer Outfits', 'Leisure Wear']
   },
   {
@@ -138,7 +122,7 @@ export const PRODUCTS: Product[] = [
     name: 'Premium Palazzo Fabric',
     category: 'palazzo',
     description: 'High-quality rayon fabric with a soft hand-feel and elegant drape, specially curated for stylish palazzos.',
-    image: 'https://lh3.googleusercontent.com/d/14Nad3gIsGjY7R45fsiDmkBYEbZnvVhQd',
+    image: 'https://lh3.googleusercontent.com/d/1LZgvOSZTVx6GrsOCt3fBTyNkjvGNh06c',
     usage: ['Palazzos', 'Trousers', 'Culottes', 'Ethnic Bottoms']
   },
   {
@@ -154,7 +138,7 @@ export const PRODUCTS: Product[] = [
     name: 'Designer Palazzo Print B',
     category: 'palazzo',
     description: 'Soft, flowing rayon with intricate patterns for high-end palazzo collections.',
-    image: 'https://lh3.googleusercontent.com/d/1FP8EKrF5L6vKghNEMbceOfFpEPDPpJkt',
+    image: 'https://lh3.googleusercontent.com/d/1IxBk8Y1eQOjEWqlRAIyyl6jCnLNBXHOJ',
     usage: ['Palazzos', 'Ethnic Wear', 'Lounge Wear']
   }
 ];
