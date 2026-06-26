@@ -28,8 +28,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Hero
     'hero.label': 'The Art of Indian Textiles',
-    'hero.title.line1': 'We don’t make textiles—',
-    'hero.title.line2': 'quality is built in from the start.',
+    'hero.title.line1': 'Quality isn’t our standard.',
+    'hero.title.line2': 'It’s our starting point.',
     'hero.subtitle': 'From the heart of Balotra\'s textile mills, we bring you the finest Viscose Rayon and Cotton fabrics, refined into form for global fashion.',
     'hero.cta.view': 'View Collections',
     'hero.cta.wholesale': 'Wholesale Inquiry',
@@ -162,8 +162,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Hero
     'hero.label': 'भारतीय वस्त्रों की कला',
-    'hero.title.line1': 'हम केवल वस्त्र नहीं बनाते—',
-    'hero.title.line2': 'गुणवत्ता शुरुआत से ही इसमें समाहित है।',
+    'hero.title.line1': 'गुणवत्ता हमारा मानक नहीं है,',
+    'hero.title.line2': 'यह हमारा शुरुआती बिंदु है।',
     'hero.subtitle': 'बालोतरा के टेक्सटाइल मिलों के केंद्र से, हम आपके लिए बेहतरीन विस्कोस रेयॉन और सूती कपड़े लाते हैं, जो वैश्विक फैशन के लिए तैयार किए गए हैं।',
     'hero.cta.view': 'कलेक्शन देखें',
     'hero.cta.wholesale': 'थोक पूछताछ',

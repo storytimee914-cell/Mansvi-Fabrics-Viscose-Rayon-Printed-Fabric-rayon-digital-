@@ -2,5 +2,7 @@
   "name": "Mansvi Fabrics",
   "description": "Premium manufacturer of Viscose Rayon, Digital Prints & Cotton fabrics in Balotra, India. Direct from factory bulk orders and custom printing services.",
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

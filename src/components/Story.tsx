@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import React from 'react';
 import { Leaf, Award, Users, ChevronRight, Factory, Globe, FlaskConical } from 'lucide-react';
 import MandalaDoodle from './MandalaDoodle';
 import { useLanguage } from '../context/LanguageContext';
@@ -104,7 +105,7 @@ export default function Story() {
               <img
                 src="https://lh3.googleusercontent.com/d/1qOwuW_z_syvSL-F8K8g1j-WDXhpuZFnA"
                 alt="Mansvi Fabrics Heritage"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
             </div>

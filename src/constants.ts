@@ -132,14 +132,6 @@ export const PRODUCTS: Product[] = [
     description: 'Exclusive printed rayon fabric designed for premium palazzos and wide-leg trousers.',
     image: 'https://lh3.googleusercontent.com/d/16UTkfy_cXA0KoqS_QOAFbtEu4Us5l43G',
     usage: ['Palazzos', 'Designer Bottoms', 'Summer Wear']
-  },
-  {
-    id: '20',
-    name: 'Designer Palazzo Print B',
-    category: 'palazzo',
-    description: 'Soft, flowing rayon with intricate patterns for high-end palazzo collections.',
-    image: 'https://lh3.googleusercontent.com/d/1IxBk8Y1eQOjEWqlRAIyyl6jCnLNBXHOJ',
-    usage: ['Palazzos', 'Ethnic Wear', 'Lounge Wear']
   }
 ];
 

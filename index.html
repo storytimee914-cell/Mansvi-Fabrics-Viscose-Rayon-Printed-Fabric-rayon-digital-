@@ -1,6 +1,21 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      // Squelch untrackable sandboxed iframe cross-origin script errors or browser extension injected errors
+      window.addEventListener('error', function(e) {
+        if (e.message && (e.message.indexOf('Script error') !== -1 || e.message === 'Script error.')) {
+          e.stopImmediatePropagation();
+          e.preventDefault();
+        }
+      }, true);
+      window.addEventListener('unhandledrejection', function(e) {
+        if (e.reason && e.reason.message && e.reason.message.indexOf('Script error') !== -1) {
+          e.stopImmediatePropagation();
+          e.preventDefault();
+        }
+      }, true);
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mansvi Fabrics | Viscose Rayon & Printed Fabric Manufacturer India</title>
