@@ -30,7 +30,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.label': 'The Art of Indian Textiles',
     'hero.title.line1': 'Quality isn’t our standard.',
     'hero.title.line2': 'It’s our starting point.',
-    'hero.subtitle': 'From the heart of Balotra\'s textile mills, we bring you the finest Viscose Rayon and Cotton fabrics, refined into form for global fashion.',
+    'hero.subtitle': 'Bringing you the finest Viscose Rayon and Cotton fabrics, engineered for quality and designed for global fashion.',
     'hero.cta.view': 'View Collections',
     'hero.cta.wholesale': 'Wholesale Inquiry',
 

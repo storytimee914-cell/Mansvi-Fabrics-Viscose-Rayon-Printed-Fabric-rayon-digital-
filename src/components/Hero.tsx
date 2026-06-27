@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
@@ -8,6 +8,16 @@ export default function Hero() {
   const { t } = useLanguage();
   const heroRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoSrc, setVideoSrc] = useState("/assets/intro.mp4");
+  const [hasFailedOnce, setHasFailedOnce] = useState(false);
+
+  const handleVideoError = () => {
+    if (!hasFailedOnce) {
+      setHasFailedOnce(true);
+      // Fallback to high-speed premium textile production stock video on public CDN
+      setVideoSrc("https://assets.mixkit.co/videos/preview/mixkit-sewing-machine-stitching-a-fabric-close-up-40431-large.mp4");
+    }
+  };
 
   return (
     <section 
@@ -108,12 +118,13 @@ export default function Hero() {
         >
           <video
             ref={videoRef}
-            src="/assets/intro.mp4"
+            src={videoSrc}
             autoPlay
             muted
             loop
             playsInline
             preload="auto"
+            onError={handleVideoError}
             className="w-full h-full object-cover scale-[1.01]"
           />
           {/* Elegant vignette overlay */}
